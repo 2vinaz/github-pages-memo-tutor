@@ -113,6 +113,7 @@ describe('github-pages memo tutor repository', () => {
     const readme = file('README.md')
     const claude = file('CLAUDE.md')
     const tutor = file('.claude/skills/tutor.md')
+    const command = file('.claude/commands/tutor.md')
 
     assert.match(readme, /node scripts\/progress\.mjs reset/)
     assert.match(claude, /이전 진행 기록/)
@@ -120,6 +121,11 @@ describe('github-pages memo tutor repository', () => {
     assert.match(tutor, /처음부터/)
     assert.match(tutor, /node scripts\/progress\.mjs reset/)
     assert.match(tutor, /조용히 Lesson 01로 넘어가지 않는다/)
+    assert.match(command, /\/tutor/)
+    assert.match(command, /이전 진행 기록/)
+    assert.match(command, /처음부터/)
+    assert.match(command, /이어서/)
+    assert.match(command, /조용히 재개하지 않는다/)
   })
 
   it('does not tell the tutor to run raw interactive gh auth login', () => {
