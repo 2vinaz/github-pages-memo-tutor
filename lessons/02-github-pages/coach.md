@@ -16,23 +16,27 @@ gh auth status
 
 실패하면 학습자에게:
 
-> GitHub 계정 로그인이 아직 안 되어 있어요. 브라우저가 열리면 GitHub에 로그인만 해주세요. 비밀번호는 제가 보지 않고, GitHub 화면에서 학습자분이 직접 처리합니다.
+> GitHub 계정 로그인이 아직 안 되어 있어요. 대화형 `gh auth login`은 터미널에서 멈춘 것처럼 보일 수 있어서, 웹 로그인과 코드 복사를 한 번에 여는 방식으로 갈게요. 비밀번호는 제가 보지 않고, GitHub 화면에서 학습자분이 직접 처리합니다.
 
-Claude가 실행:
+학습자가 직접 터미널에서 실행하거나, Claude가 실행해도 된다:
 
 ```bash
-gh auth login
+gh auth login --web --clipboard --git-protocol https
 ```
 
 안내 포인트:
 
-- `GitHub.com` 선택
-- `HTTPS` 또는 기본 선택지 사용
-- 브라우저가 열리면 GitHub 계정으로 로그인
-- 화면에 코드 입력이 나오면 GitHub 화면에 직접 입력
-- 끝나면 Claude가 다시 `gh auth status` 실행
+- `--web`은 브라우저 로그인 화면을 연다.
+- `--clipboard`는 GitHub에 넣을 1회용 코드를 클립보드에 복사한다.
+- `--git-protocol https`는 SSH 키 질문으로 새지 않게 한다.
+- 브라우저가 열리면 GitHub 계정으로 로그인하고, 코드 입력 화면이 나오면 붙여넣는다.
+- 끝나면 Claude가 다시 `gh auth status`를 실행한다.
 
-브라우저 로그인이 계속 어렵다면 수동 경로로 간다.
+2분 정도 기다려도 움직이지 않거나 대화형 선택지에서 막히면 학습자에게:
+
+> 괜찮아요. 지금 터미널에서는 `Ctrl+C`를 눌러 빠져나오세요. 로그인 자동 경로는 여기서 멈추고, GitHub 브라우저 화면으로 저장소와 Pages를 직접 만드는 경로로 이어가겠습니다.
+
+그 다음 Step 4의 브라우저 수동 경로로 간다.
 
 ## Step 2. Git 체크포인트 만들기 `[git]`
 

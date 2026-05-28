@@ -50,9 +50,11 @@ Lesson 02에서는 GitHub 계정 준비부터 같이 갑니다.
 
 ```bash
 gh auth status
-gh auth login
+gh auth login --web --clipboard --git-protocol https
 npm run deploy:pages -- memo-pages
 ```
+
+`gh auth login`에서 멈춘 것처럼 보이면 `Ctrl+C`로 빠져나온 뒤 위처럼 `--web --clipboard --git-protocol https` 옵션을 붙여 다시 시도합니다. 그래도 막히면 튜터가 브라우저 수동 경로로 바로 이어갑니다.
 
 `npm run deploy:pages -- memo-pages`는 GitHub CLI 로그인이 되어 있을 때 새 public 저장소를 만들고, `main` 브랜치를 push하고, GitHub Pages source를 `main / docs`로 설정합니다.
 

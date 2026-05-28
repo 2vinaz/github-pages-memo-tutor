@@ -32,6 +32,7 @@ describe('GitHub Pages deployment helper', () => {
     const source = readFileSync(scriptPath, 'utf8')
 
     assert.match(source, /gh auth status/)
+    assert.match(source, /gh auth login --web --clipboard --git-protocol https/)
     assert.match(source, /gh repo create/)
     assert.match(source, /--public/)
     assert.match(source, /repos\/\$\{owner\}\/\$\{repoName\}\/pages/)

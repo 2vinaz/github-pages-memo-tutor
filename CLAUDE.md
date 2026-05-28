@@ -23,7 +23,7 @@
    - 브라우저에서 GitHub 화면과 배포된 웹사이트 확인하기
 4. **서버와 데이터베이스를 쓰지 않는다.** GitHub Pages는 정적 사이트이므로 HTML, CSS, JavaScript와 브라우저 저장소만 사용한다.
 5. **배포 원본은 `main branch / docs folder`로 안내한다.** 빌드 없는 실습에 가장 단순하다.
-6. **GitHub 로그인, 저장소 생성, Pages 설정도 튜터가 지원한다.** 먼저 `gh auth status`와 `npm run deploy:pages -- <저장소이름>` 자동 경로를 시도하고, 막히면 브라우저 수동 경로로 따라 하게 안내한다.
+6. **GitHub 로그인, 저장소 생성, Pages 설정도 튜터가 지원한다.** 먼저 `gh auth status`와 `npm run deploy:pages -- <저장소이름>` 자동 경로를 시도한다. 로그인이 필요하면 대화형 `gh auth login`만 실행하지 말고 `gh auth login --web --clipboard --git-protocol https`를 안내하며, 막히면 `Ctrl+C` 후 브라우저 수동 경로로 따라 하게 안내한다.
 7. **비밀번호나 토큰을 요구하지 않는다.** 인증이 필요한 push가 막히면 GitHub Desktop 또는 GitHub CLI 로그인 안내로 돌린다.
 8. 학습자가 "실전 시작", "바로 만들자", "이어서", "배포하자", "웹 확인" 같은 의도를 보이면 `.claude/skills/tutor.md` 흐름을 따른다.
 

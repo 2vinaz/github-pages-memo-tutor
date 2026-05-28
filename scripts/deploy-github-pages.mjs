@@ -11,6 +11,7 @@ const usage = 'Usage: node scripts/deploy-github-pages.mjs [--dry-run] <reposito
 const pagesSource = { branch: 'main', path: '/docs' }
 const commandReference = [
   'gh auth status',
+  'gh auth login --web --clipboard --git-protocol https',
   'gh repo create <owner>/<repo> --public --source=. --remote=origin --push',
   "gh api --method POST repos/${owner}/${repoName}/pages -f 'source[branch]=main' -f 'source[path]=/docs'",
 ]
@@ -152,7 +153,9 @@ try {
   console.error(error.message)
   console.error('')
   console.error('GitHub 로그인이 안 되어 있으면 먼저 실행하세요:')
-  console.error('  gh auth login')
+  console.error('  gh auth login --web --clipboard --git-protocol https')
+  console.error('')
+  console.error('멈춘 것처럼 보이면 Ctrl+C로 빠져나온 뒤 Lesson 02의 브라우저 수동 안내로 가세요.')
   console.error('')
   console.error('브라우저로 직접 하셔도 됩니다. Lesson 02의 수동 안내를 따라가세요.')
   process.exit(1)

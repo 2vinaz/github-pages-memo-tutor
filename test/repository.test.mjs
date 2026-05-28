@@ -58,7 +58,9 @@ describe('github-pages memo tutor repository', () => {
     const coach = file('lessons/02-github-pages/coach.md')
 
     assert.match(coach, /gh auth status/)
-    assert.match(coach, /gh auth login/)
+    assert.match(coach, /gh auth login --web --clipboard --git-protocol https/)
+    assert.match(coach, /Ctrl\+C/)
+    assert.match(coach, /대화형/)
     assert.match(coach, /GitHub 계정/)
     assert.match(coach, /새 저장소/)
     assert.match(coach, /gh repo create/)
@@ -105,5 +107,15 @@ describe('github-pages memo tutor repository', () => {
     assert.match(claude, /짧은 인터뷰/)
     assert.match(tutor, /Lesson 00/)
     assert.match(tutor, /인터뷰/)
+  })
+
+  it('does not tell the tutor to run raw interactive gh auth login', () => {
+    const coach = file('lessons/02-github-pages/coach.md')
+    const readme = file('README.md')
+    const deploy = file('scripts/deploy-github-pages.mjs')
+
+    assert.doesNotMatch(coach, /```bash\ngh auth login\n```/)
+    assert.doesNotMatch(readme, /```bash\ngh auth status\ngh auth login\n/)
+    assert.match(deploy, /gh auth login --web --clipboard --git-protocol https/)
   })
 })

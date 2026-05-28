@@ -67,3 +67,4 @@ node scripts/progress.mjs complete <lesson>
 - Branch: `main`
 - Folder: `/docs`
 - 예상 URL: `https://<github-id>.github.io/<repo-name>/`
+- GitHub CLI 로그인이 필요하면 `gh auth login --web --clipboard --git-protocol https`를 안내한다. 대화형 로그인에서 멈추면 `Ctrl+C` 후 브라우저 수동 경로로 간다.
