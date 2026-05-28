@@ -73,20 +73,31 @@ describe('github-pages memo tutor repository', () => {
     const lesson0 = file('lessons/00-start/coach.md')
 
     assert.match(lesson0, /환영/)
-    assert.match(lesson0, /바로 만들기 전에/)
-    assert.match(lesson0, /어떤 메모/)
-    assert.match(lesson0, /누가 쓸/)
-    assert.match(lesson0, /node scripts\/progress\.mjs check 0 appName/)
-    assert.match(lesson0, /node scripts\/progress\.mjs check 0 memoUse/)
-    assert.match(lesson0, /node scripts\/progress\.mjs check 0 audience/)
+    assert.match(lesson0, /What/)
+    assert.match(lesson0, /Who/)
+    assert.match(lesson0, /Behavior/)
+    assert.match(lesson0, /Errors/)
+    assert.match(lesson0, /Out of Scope/)
+    assert.match(lesson0, /Design/)
+    assert.match(lesson0, /node scripts\/progress\.mjs check 0 what/)
+    assert.match(lesson0, /node scripts\/progress\.mjs check 0 who/)
+    assert.match(lesson0, /node scripts\/progress\.mjs check 0 behavior/)
+    assert.match(lesson0, /node scripts\/progress\.mjs check 0 errors/)
+    assert.match(lesson0, /node scripts\/progress\.mjs check 0 outOfScope/)
+    assert.match(lesson0, /node scripts\/progress\.mjs check 0 design/)
   })
 
-  it('co-builds the memo app from interview answers instead of blindly copying it', () => {
+  it('co-builds the memo app from product and design interview answers', () => {
     const lesson1 = file('lessons/01-build-memo/coach.md')
 
     assert.match(lesson1, /인터뷰 답변/)
-    assert.match(lesson1, /앱 이름/)
-    assert.match(lesson1, /placeholder/)
+    assert.match(lesson1, /제품 기획 요약/)
+    assert.match(lesson1, /디자인 방향/)
+    assert.match(lesson1, /What/)
+    assert.match(lesson1, /Who/)
+    assert.match(lesson1, /Behavior/)
+    assert.match(lesson1, /Errors/)
+    assert.match(lesson1, /Out of Scope/)
     assert.match(lesson1, /함께 정한/)
     assert.match(lesson1, /node scripts\/customize-app\.mjs/)
     assert.doesNotMatch(lesson1, /질문 없이/)
@@ -103,10 +114,12 @@ describe('github-pages memo tutor repository', () => {
       assert.doesNotMatch(text, /앞 질문 없이/)
     }
 
-    assert.match(readme, /짧은 인터뷰/)
-    assert.match(claude, /짧은 인터뷰/)
+    assert.match(readme, /제품 인터뷰/)
+    assert.match(claude, /제품 인터뷰/)
     assert.match(tutor, /Lesson 00/)
     assert.match(tutor, /인터뷰/)
+    assert.match(claude, /디자인/)
+    assert.match(tutor, /디자인/)
   })
 
   it('prevents stale local progress from silently skipping the learner interview', () => {

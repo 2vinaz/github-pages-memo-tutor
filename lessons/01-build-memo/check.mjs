@@ -29,14 +29,26 @@ if (ok) {
     console.error('app.js에 브라우저 저장소 로직이 없어요.')
     ok = false
   }
-  for (const key of ['appName', 'memoUse', 'audience']) {
-    if (checks[key] && !html.includes(checks[key])) {
+  for (const key of ['what', 'who', 'behavior', 'errors', 'outOfScope', 'design']) {
+    if (checks[key] && !html.includes(escapeHtml(checks[key]))) {
       console.error(`인터뷰 답변 ${key}가 화면 파일에 반영되지 않았어요.`)
       ok = false
     }
+  }
+  if (!html.includes('제품 기획 요약')) {
+    console.error('제품 기획 요약 섹션이 화면 파일에 없어요.')
+    ok = false
   }
 }
 
 if (!ok) process.exit(1)
 
 console.log('Lesson 01 통과 — GitHub Pages용 메모 앱 파일 준비 완료')
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+}

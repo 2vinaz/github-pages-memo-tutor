@@ -17,9 +17,9 @@ describe('progress script', () => {
     cpSync(root, temp, { recursive: true })
 
     execFileSync('node', ['scripts/progress.mjs', 'init'], { cwd: temp })
-    execFileSync('node', ['scripts/progress.mjs', 'check', '0', 'appName', '회의 메모장'], { cwd: temp })
-    execFileSync('node', ['scripts/progress.mjs', 'check', '0', 'memoUse', '회의 끝나고 할 일을 남기기'], { cwd: temp })
-    execFileSync('node', ['scripts/progress.mjs', 'check', '0', 'audience', '운영팀 동료'], { cwd: temp })
+    execFileSync('node', ['scripts/progress.mjs', 'check', '0', 'what', '회의 후 할 일을 빠르게 정리하는 메모 앱'], { cwd: temp })
+    execFileSync('node', ['scripts/progress.mjs', 'check', '0', 'who', '운영팀 동료'], { cwd: temp })
+    execFileSync('node', ['scripts/progress.mjs', 'check', '0', 'behavior', '메모를 저장하면 목록에 추가된다'], { cwd: temp })
     execFileSync('node', ['scripts/progress.mjs', 'complete', '0'], { cwd: temp })
 
     execFileSync('node', ['scripts/progress.mjs', 'reset'], { cwd: temp })

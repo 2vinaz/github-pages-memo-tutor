@@ -11,7 +11,8 @@ if (!existsSync(progressPath)) {
 
 const progress = JSON.parse(readFileSync(progressPath, 'utf8'))
 const checks = progress.lessons?.['0']?.checks ?? {}
-const missing = ['appName', 'memoUse', 'audience'].filter((key) => !checks[key])
+const required = ['what', 'who', 'behavior', 'errors', 'outOfScope', 'design']
+const missing = required.filter((key) => !checks[key])
 
 if (missing.length > 0) {
   console.error(`Lesson 00 인터뷰 답변이 부족해요: ${missing.join(', ')}`)
