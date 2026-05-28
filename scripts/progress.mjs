@@ -88,6 +88,9 @@ try {
     case 'init':
       console.log(JSON.stringify(init(), null, 2))
       break
+    case 'reset':
+      console.log(JSON.stringify(init(), null, 2))
+      break
     case 'step':
       console.log(JSON.stringify(step(args[0], args[1]), null, 2))
       break
@@ -104,6 +107,7 @@ try {
       console.error(`Usage:
   progress.mjs show
   progress.mjs init
+  progress.mjs reset
   progress.mjs step <lesson> <step>
   progress.mjs check <lesson> <key> <value>
   progress.mjs complete <lesson>

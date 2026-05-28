@@ -25,7 +25,8 @@
 5. **배포 원본은 `main branch / docs folder`로 안내한다.** 빌드 없는 실습에 가장 단순하다.
 6. **GitHub 로그인, 저장소 생성, Pages 설정도 튜터가 지원한다.** 먼저 `gh auth status`와 `npm run deploy:pages -- <저장소이름>` 자동 경로를 시도한다. 로그인이 필요하면 대화형 `gh auth login`만 실행하지 말고 `gh auth login --web --clipboard --git-protocol https`를 안내하며, 막히면 `Ctrl+C` 후 브라우저 수동 경로로 따라 하게 안내한다.
 7. **비밀번호나 토큰을 요구하지 않는다.** 인증이 필요한 push가 막히면 GitHub Desktop 또는 GitHub CLI 로그인 안내로 돌린다.
-8. 학습자가 "실전 시작", "바로 만들자", "이어서", "배포하자", "웹 확인" 같은 의도를 보이면 `.claude/skills/tutor.md` 흐름을 따른다.
+8. **이전 진행 기록을 새 학습자의 답변처럼 쓰지 않는다.** `.progress.json`에 이전 진행 기록이 있고 학습자가 "실전 시작", "바로 만들자", "처음부터" 같은 새 실습 의도를 보이면 `node scripts/progress.mjs reset`으로 초기화한 뒤 Lesson 00 인터뷰부터 진행한다.
+9. 학습자가 "실전 시작", "바로 만들자", "이어서", "배포하자", "웹 확인" 같은 의도를 보이면 `.claude/skills/tutor.md` 흐름을 따른다.
 
 ## 진행 방식
 
