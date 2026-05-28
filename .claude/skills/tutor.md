@@ -81,5 +81,5 @@ node scripts/progress.mjs complete <lesson>
 - 배포 명령: `npm run deploy:netlify`
 - 내부 CLI: `npx --yes netlify-cli@latest deploy --allow-anonymous --dir docs --no-build --json`
 - 예상 URL: `https://<임시이름>.netlify.app/`
-- 기본 경로에서는 GitHub 로그인, Netlify 로그인, 저장소 생성, 토큰 입력을 요구하지 않는다.
+- 기본 경로에서는 별도 서비스 로그인, 저장소 생성, 토큰 입력을 요구하지 않는다.
 - 배포 URL은 공개 주소이므로 실습용 문구만 올리고 민감한 내용은 넣지 않는다.

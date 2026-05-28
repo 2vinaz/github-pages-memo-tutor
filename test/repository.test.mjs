@@ -142,7 +142,7 @@ describe('netlify memo tutor repository', () => {
     assert.match(command, /조용히 재개하지 않는다/)
   })
 
-  it('does not require GitHub or Netlify login for the default deploy path', () => {
+  it('does not require service login for the default deploy path', () => {
     const coach = file('lessons/02-netlify-deploy/coach.md')
     const readme = file('README.md')
     const deploy = file('scripts/deploy-netlify.mjs')
@@ -152,5 +152,25 @@ describe('netlify memo tutor repository', () => {
     assert.doesNotMatch(deploy, /gh auth/)
     assert.doesNotMatch(coach, /netlify login/)
     assert.match(deploy, /--allow-anonymous/)
+  })
+
+  it('keeps user-facing tutor files free of GitHub deployment cues', () => {
+    const userFacingFiles = [
+      'README.md',
+      'CLAUDE.md',
+      '.claude/commands/tutor.md',
+      '.claude/skills/tutor.md',
+      'lessons/00-start/coach.md',
+      'lessons/01-build-memo/coach.md',
+      'lessons/02-netlify-deploy/coach.md',
+      'lessons/03-verify-web/coach.md',
+    ]
+
+    for (const path of userFacingFiles) {
+      const text = file(path)
+      assert.doesNotMatch(text, /GitHub/)
+      assert.doesNotMatch(text, /gh auth/)
+      assert.doesNotMatch(text, /github\.io/)
+    }
   })
 })

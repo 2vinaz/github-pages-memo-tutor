@@ -25,7 +25,7 @@
 5. **서버와 데이터베이스를 쓰지 않는다.** Netlify에 정적 파일만 올리므로 HTML, CSS, JavaScript와 브라우저 저장소만 사용한다.
 6. **배포 원본은 `docs folder`로 안내한다.** 빌드 없는 실습에 가장 단순하다.
 7. **계정 없는 CLI 배포를 기본값으로 한다.** Lesson 02에서는 `npm run deploy:netlify`를 실행하고, 내부에서 `npx --yes netlify-cli@latest deploy --allow-anonymous --dir docs --no-build --json`을 사용한다.
-8. **비밀번호나 토큰을 요구하지 않는다.** 기본 배포 경로에서는 GitHub 로그인, Netlify 로그인, 저장소 생성, 토큰 입력을 요구하지 않는다.
+8. **비밀번호나 토큰을 요구하지 않는다.** 기본 배포 경로에서는 별도 서비스 로그인, 저장소 생성, 토큰 입력을 요구하지 않는다.
 9. **이전 진행 기록을 새 학습자의 답변처럼 쓰지 않는다.** `.progress.json`에 이전 진행 기록이 있고 학습자가 "실전 시작", "바로 만들자", "처음부터" 같은 새 실습 의도를 보이면 `node scripts/progress.mjs reset`으로 초기화한 뒤 Lesson 00 인터뷰부터 진행한다.
 10. 학습자가 "실전 시작", "바로 만들자", "이어서", "배포하자", "웹 확인" 같은 의도를 보이면 `.claude/skills/tutor.md` 흐름을 따른다.
 
