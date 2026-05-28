@@ -43,7 +43,7 @@ if (ok) {
 
 if (!ok) process.exit(1)
 
-console.log('Lesson 01 통과 — GitHub Pages용 메모 앱 파일 준비 완료')
+console.log('Lesson 01 통과 — Netlify 배포용 메모 앱 파일 준비 완료')
 
 function escapeHtml(value) {
   return String(value)

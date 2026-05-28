@@ -79,7 +79,7 @@ node scripts/progress.mjs step 1 local
 
 학습자에게:
 
-> 지금 한 일은 코딩 전에 정한 제품 기준을 화면에 연결한 것입니다. What/Who/Behavior/Errors/Out of Scope는 기능 범위를 흔들리지 않게 잡아주고, Design은 사용자가 처음 보는 느낌을 결정합니다. 앱 자체는 서버 없이 브라우저 안에 저장되는 정적 메모 앱이라 GitHub Pages에 그대로 올릴 수 있어요.
+> 지금 한 일은 코딩 전에 정한 제품 기준을 화면에 연결한 것입니다. What/Who/Behavior/Errors/Out of Scope는 기능 범위를 흔들리지 않게 잡아주고, Design은 사용자가 처음 보는 느낌을 결정합니다. 앱 자체는 서버 없이 브라우저 안에 저장되는 정적 메모 앱이라 Netlify에 그대로 올릴 수 있어요.
 
 ## Step 6. 체크 `[done]`
 

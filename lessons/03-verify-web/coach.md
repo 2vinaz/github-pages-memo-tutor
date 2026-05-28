@@ -1,6 +1,6 @@
 # Lesson 03 — 웹으로 확인
 
-목표: `github.io` 주소에서 메모 앱이 실제로 열리는지 확인한다.
+목표: `netlify.app` 주소에서 메모 앱이 실제로 열리는지 확인한다.
 
 ## Step 1. 배포 주소 확인 `[url]`
 
@@ -10,12 +10,12 @@ Claude가 `.progress.json`을 확인한다.
 npm run progress
 ```
 
-`github.pagesUrl`이 비어 있으면 학습자에게 GitHub Pages 화면의 배포 URL을 붙여넣어 달라고 한다.
+`deployment.url`이 비어 있으면 Lesson 02의 Netlify CLI 익명 배포를 먼저 실행한다.
 
-기록:
+수동으로 URL을 다시 기록해야 할 때:
 
 ```bash
-node scripts/progress.mjs github <저장소-HTTPS-주소> <github.io-주소>
+node scripts/progress.mjs deploy netlify <netlify.app-주소> [claim-주소]
 ```
 
 ## Step 2. 웹 응답 확인 `[fetch]`
@@ -26,7 +26,7 @@ Claude가 실행:
 npm run check 3
 ```
 
-GitHub Pages는 첫 배포에 1분 정도 걸릴 수 있다. 실패하면 잠깐 기다렸다가 다시 실행한다.
+Netlify 배포 직후에는 주소가 열리기까지 잠깐 걸릴 수 있다. 실패하면 잠시 후 다시 실행한다.
 
 ## Step 3. 브라우저로 확인 `[browser]`
 
@@ -43,6 +43,6 @@ node scripts/progress.mjs complete 3
 
 ## Lesson 종료 조건
 
-- `github.io` 주소가 HTTP 200 응답
+- `netlify.app` 주소가 HTTP 200 응답
 - 브라우저에서 메모 앱 화면 확인
 - 메모 저장 후 새로고침 유지 확인

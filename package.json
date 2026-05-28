@@ -1,13 +1,13 @@
 {
-  "name": "github-pages-memo-tutor",
+  "name": "netlify-memo-tutor",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "GitHub Pages에 메모 앱을 만들고 배포하는 실전형 튜터 저장소",
+  "description": "Netlify CLI로 메모 앱을 만들고 배포하는 실전형 튜터 저장소",
   "scripts": {
     "test": "node --test",
     "check": "node scripts/check.mjs",
-    "deploy:pages": "node scripts/deploy-github-pages.mjs",
+    "deploy:netlify": "node scripts/deploy-netlify.mjs",
     "progress": "node scripts/progress.mjs show",
     "customize": "node scripts/customize-app.mjs",
     "serve": "npx --yes http-server docs -p 4173 -c-1"

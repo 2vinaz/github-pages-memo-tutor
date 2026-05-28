@@ -17,16 +17,16 @@ try {
   process.exit(1)
 }
 
-const url = progress.github?.pagesUrl
-if (!url || !/^https:\/\/.+\.github\.io\/.+/.test(url)) {
-  console.error('GitHub Pages URL이 기록되지 않았어요.')
+const url = progress.deployment?.url ?? progress.github?.pagesUrl
+if (!url || !/^https:\/\/.+\.netlify\.app\/?/.test(url)) {
+  console.error('Netlify 배포 URL이 기록되지 않았어요.')
   process.exit(1)
 }
 
 try {
   const response = await fetch(url)
   if (!response.ok) {
-    console.error(`웹 응답이 ${response.status}예요. Pages 배포가 아직 진행 중일 수 있어요.`)
+    console.error(`웹 응답이 ${response.status}예요. Netlify 배포가 아직 진행 중일 수 있어요.`)
     process.exit(1)
   }
   const body = await response.text()
@@ -36,6 +36,6 @@ try {
   }
   console.log(`Lesson 03 통과 — 웹으로 확인 완료: ${url}`)
 } catch {
-  console.error('GitHub Pages 주소에 아직 접속할 수 없어요. 잠시 후 다시 확인하세요.')
+  console.error('Netlify 주소에 아직 접속할 수 없어요. 잠시 후 다시 확인하세요.')
   process.exit(1)
 }

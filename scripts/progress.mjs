@@ -31,6 +31,11 @@ function init() {
       repositoryUrl: null,
       pagesUrl: null,
     },
+    deployment: {
+      provider: null,
+      url: null,
+      claimUrl: null,
+    },
   }
   write(data)
   return data
@@ -78,6 +83,18 @@ function github(repositoryUrl, pagesUrl) {
   return data
 }
 
+function deploy(provider, url, claimUrl) {
+  const data = ensure()
+  data.deployment ??= {}
+  data.deployment.provider = provider ?? data.deployment.provider
+  data.deployment.url = url ?? data.deployment.url
+  data.deployment.claimUrl = claimUrl || data.deployment.claimUrl || null
+  data.github ??= {}
+  data.github.pagesUrl = url ?? data.github.pagesUrl
+  write(data)
+  return data
+}
+
 const [cmd, ...args] = process.argv.slice(2)
 
 try {
@@ -103,6 +120,9 @@ try {
     case 'github':
       console.log(JSON.stringify(github(args[0], args[1]), null, 2))
       break
+    case 'deploy':
+      console.log(JSON.stringify(deploy(args[0], args[1], args[2]), null, 2))
+      break
     default:
       console.error(`Usage:
   progress.mjs show
@@ -111,6 +131,7 @@ try {
   progress.mjs step <lesson> <step>
   progress.mjs check <lesson> <key> <value>
   progress.mjs complete <lesson>
+  progress.mjs deploy <provider> <url> [claimUrl]
   progress.mjs github <repositoryUrl> [pagesUrl]`)
       process.exit(2)
   }

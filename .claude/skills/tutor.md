@@ -1,9 +1,9 @@
 ---
 name: tutor
 description: |
-  GitHub Pages 메모 앱 실습을 시작, 재개, 배포, 확인한다.
+  Netlify CLI 메모 앱 실습을 시작, 재개, 배포, 확인한다.
   트리거: 실전 시작, 바로 만들자, 메모 앱 만들자, 이어서 할래,
-  배포하자, GitHub Pages, 웹 확인, github.io 확인
+  배포하자, Netlify, 웹 확인, netlify.app 확인
 ---
 
 # /tutor 진행 절차
@@ -73,13 +73,13 @@ npm run check <lesson>
 node scripts/progress.mjs complete <lesson>
 ```
 
-## 5. GitHub Pages 원칙
+## 5. Netlify CLI 배포 원칙
 
 이 실습은 빌드 없는 정적 사이트다.
 
 - 앱 파일 위치: `docs/`
-- Pages source: `Deploy from a branch`
-- Branch: `main`
-- Folder: `/docs`
-- 예상 URL: `https://<github-id>.github.io/<repo-name>/`
-- GitHub CLI 로그인이 필요하면 `gh auth login --web --clipboard --git-protocol https`를 안내한다. 대화형 로그인에서 멈추면 `Ctrl+C` 후 브라우저 수동 경로로 간다.
+- 배포 명령: `npm run deploy:netlify`
+- 내부 CLI: `npx --yes netlify-cli@latest deploy --allow-anonymous --dir docs --no-build --json`
+- 예상 URL: `https://<임시이름>.netlify.app/`
+- 기본 경로에서는 GitHub 로그인, Netlify 로그인, 저장소 생성, 토큰 입력을 요구하지 않는다.
+- 배포 URL은 공개 주소이므로 실습용 문구만 올리고 민감한 내용은 넣지 않는다.

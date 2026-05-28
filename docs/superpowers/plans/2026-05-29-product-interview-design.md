@@ -44,7 +44,7 @@
 - [ ] Read new Lesson 00 keys from `.progress.json`.
 - [ ] Render a product brief block into `docs/index.html`.
 - [ ] Use `design` text to select a simple visual theme: calm/minimal, bright/friendly, or focused/professional.
-- [ ] Keep the app static and GitHub Pages-compatible.
+- [ ] Keep the app static and Netlify-compatible.
 - [ ] Check that required answers appear in the generated HTML.
 
 ### Task 4: Verify And Ship
@@ -56,4 +56,4 @@
 - [ ] Run `npm run check 0` after seeding progress answers.
 - [ ] Run a temporary Lesson 01 customization check.
 - [ ] Commit and push.
-- [ ] Confirm GitHub Pages status returns `built`.
+- [ ] Confirm the deployed `netlify.app` URL responds.

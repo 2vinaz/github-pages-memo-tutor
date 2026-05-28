@@ -30,5 +30,6 @@ describe('progress script', () => {
     assert.deepEqual(progress.completed, [])
     assert.deepEqual(progress.lessons, {})
     assert.deepEqual(progress.github, { repositoryUrl: null, pagesUrl: null })
+    assert.deepEqual(progress.deployment, { provider: null, url: null, claimUrl: null })
   })
 })
