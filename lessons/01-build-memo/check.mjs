@@ -18,6 +18,8 @@ for (const path of required) {
 if (ok) {
   const html = readFileSync(resolve(root, 'docs/index.html'), 'utf8')
   const js = readFileSync(resolve(root, 'docs/app.js'), 'utf8')
+  const progress = JSON.parse(readFileSync(resolve(root, '.progress.json'), 'utf8'))
+  const checks = progress.lessons?.['0']?.checks ?? {}
 
   if (!html.includes('<main')) {
     console.error('index.html에 앱 본문이 없어요.')
@@ -26,6 +28,12 @@ if (ok) {
   if (!js.includes('localStorage') || !js.includes('memo-app:v1')) {
     console.error('app.js에 브라우저 저장소 로직이 없어요.')
     ok = false
+  }
+  for (const key of ['appName', 'memoUse', 'audience']) {
+    if (checks[key] && !html.includes(checks[key])) {
+      console.error(`인터뷰 답변 ${key}가 화면 파일에 반영되지 않았어요.`)
+      ok = false
+    }
   }
 }
 

@@ -9,6 +9,7 @@
     "check": "node scripts/check.mjs",
     "deploy:pages": "node scripts/deploy-github-pages.mjs",
     "progress": "node scripts/progress.mjs show",
+    "customize": "node scripts/customize-app.mjs",
     "serve": "npx --yes http-server docs -p 4173 -c-1"
   }
 }
