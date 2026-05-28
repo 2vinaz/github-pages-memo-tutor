@@ -16,6 +16,7 @@ describe('github-pages memo tutor repository', () => {
     assert.equal(existsSync(resolve(root, '.claude/skills/tutor.md')), true)
     assert.equal(existsSync(resolve(root, 'scripts/progress.mjs')), true)
     assert.equal(existsSync(resolve(root, 'scripts/check.mjs')), true)
+    assert.equal(existsSync(resolve(root, 'scripts/deploy-github-pages.mjs')), true)
   })
 
   it('has a complete practical lesson flow ending in GitHub Pages verification', () => {
@@ -47,7 +48,22 @@ describe('github-pages memo tutor repository', () => {
 
   it('documents a GitHub Pages source that works without a build process', () => {
     assert.match(file('README.md'), /main branch.*docs folder/i)
+    assert.match(file('README.md'), /gh auth login/)
+    assert.match(file('README.md'), /npm run deploy:pages -- memo-pages/)
     assert.match(file('lessons/02-github-pages/coach.md'), /Settings/)
     assert.match(file('lessons/02-github-pages/coach.md'), /Pages/)
+  })
+
+  it('guides learners through GitHub account, repository, and Pages setup', () => {
+    const coach = file('lessons/02-github-pages/coach.md')
+
+    assert.match(coach, /gh auth status/)
+    assert.match(coach, /gh auth login/)
+    assert.match(coach, /GitHub 계정/)
+    assert.match(coach, /새 저장소/)
+    assert.match(coach, /gh repo create/)
+    assert.match(coach, /Settings.*Pages/s)
+    assert.match(coach, /Deploy from a branch/)
+    assert.match(coach, /main.*\/docs/s)
   })
 })

@@ -28,7 +28,7 @@ Claude 데스크탑 앱의 Code 탭에서 이 폴더를 열고 다음 중 하나
 |---|------|------|
 | 00 | 바로 시작 | 진행 파일 만들고 실습 방식 고정 |
 | 01 | 메모 앱 만들기 | `docs/` 정적 앱 생성, 로컬 확인 |
-| 02 | GitHub Pages 배포 | GitHub 저장소 push, Pages source 설정 |
+| 02 | GitHub Pages 배포 | GitHub 계정 로그인, 새 저장소 생성, Pages source 설정 |
 | 03 | 웹으로 확인 | `github.io` 주소 접속 확인, 마무리 |
 
 ## 명령
@@ -37,9 +37,26 @@ Claude 데스크탑 앱의 Code 탭에서 이 폴더를 열고 다음 중 하나
 npm run progress
 npm run check 1
 npm run serve
+npm run deploy:pages -- memo-pages
 ```
 
 `npm run serve`는 `docs/` 폴더를 로컬 웹사이트로 띄웁니다. 배포 전 빠른 확인용입니다.
+
+## GitHub 준비도 튜터가 안내합니다
+
+Lesson 02에서는 GitHub 계정 준비부터 같이 갑니다.
+
+자동 경로:
+
+```bash
+gh auth status
+gh auth login
+npm run deploy:pages -- memo-pages
+```
+
+`npm run deploy:pages -- memo-pages`는 GitHub CLI 로그인이 되어 있을 때 새 public 저장소를 만들고, `main` 브랜치를 push하고, GitHub Pages source를 `main / docs`로 설정합니다.
+
+브라우저 수동 경로도 대본에 들어 있습니다. 자동 로그인이 막히면 튜터가 GitHub 화면에서 `New repository`, `Settings`, `Pages`, `Deploy from a branch`, `main`, `/docs`를 차례대로 따라 하게 안내합니다.
 
 ## 참고
 
