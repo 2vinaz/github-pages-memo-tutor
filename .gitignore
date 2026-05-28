@@ -5,3 +5,4 @@ node_modules/
 .env
 .claude/settings.local.json
 preview.png
+deployed-preview.png
