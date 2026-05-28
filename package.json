@@ -1,0 +1,13 @@
+{
+  "name": "github-pages-memo-tutor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GitHub Pages에 메모 앱을 만들고 배포하는 실전형 튜터 저장소",
+  "scripts": {
+    "test": "node --test",
+    "check": "node scripts/check.mjs",
+    "progress": "node scripts/progress.mjs show",
+    "serve": "npx --yes http-server docs -p 4173 -c-1"
+  }
+}

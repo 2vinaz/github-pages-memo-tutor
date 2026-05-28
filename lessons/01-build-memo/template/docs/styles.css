@@ -1,0 +1,233 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f4ef;
+  --ink: #1f2933;
+  --muted: #667085;
+  --line: #d8d0c4;
+  --panel: #fffdf9;
+  --accent: #147d73;
+  --accent-strong: #0f5f58;
+  --warm: #c75f45;
+  --pin: #f3c64e;
+  --shadow: 0 16px 40px rgba(31, 41, 51, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(20, 125, 115, 0.10), transparent 280px),
+    var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--warm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.status {
+  margin: 0;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.composer input {
+  min-width: 0;
+  border: 0;
+  border-radius: 6px;
+  padding: 14px 12px;
+  background: #f2eee8;
+  color: var(--ink);
+  outline: 2px solid transparent;
+}
+
+.composer input:focus {
+  outline-color: rgba(20, 125, 115, 0.35);
+}
+
+.composer button,
+.toolbar button {
+  border-radius: 6px;
+  padding: 0 18px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
+.composer button:hover,
+.toolbar button:hover {
+  background: var(--accent-strong);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 14px 0;
+}
+
+.toolbar button {
+  min-height: 38px;
+  background: #394150;
+}
+
+.memo-panel {
+  min-height: 240px;
+}
+
+.memo-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.memo-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 5px solid transparent;
+  border-radius: 8px;
+}
+
+.memo-card.is-pinned {
+  border-left-color: var(--pin);
+}
+
+.memo-card.is-done .memo-text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.memo-text {
+  overflow-wrap: anywhere;
+}
+
+.memo-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.icon-button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #f9f5ef;
+  color: var(--ink);
+}
+
+.icon-button:hover {
+  border-color: var(--accent);
+}
+
+.done-toggle {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--accent);
+}
+
+.empty {
+  margin: 28px 0 0;
+  padding: 20px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    width: min(100% - 24px, 760px);
+    padding-top: 24px;
+  }
+
+  .topbar {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .composer {
+    grid-template-columns: 1fr;
+  }
+
+  .composer button {
+    min-height: 46px;
+  }
+
+  .memo-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .memo-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+}

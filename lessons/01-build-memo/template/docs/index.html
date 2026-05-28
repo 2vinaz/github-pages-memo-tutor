@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>내 메모</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">GitHub Pages Memo</p>
+          <h1>내 메모</h1>
+        </div>
+        <p class="status" id="memo-status">0개 저장됨</p>
+      </header>
+
+      <form class="composer" id="memo-form">
+        <label class="sr-only" for="memo-input">메모 내용</label>
+        <input id="memo-input" name="memo" type="text" placeholder="오늘 남길 메모를 적어보세요" autocomplete="off">
+        <button type="submit">저장</button>
+      </form>
+
+      <section class="toolbar" aria-label="메모 도구">
+        <button type="button" id="clear-done">완료한 메모 정리</button>
+      </section>
+
+      <section class="memo-panel" aria-live="polite">
+        <p class="empty" id="empty-message">아직 메모가 없어요. 첫 메모를 저장해보세요.</p>
+        <ul class="memo-list" id="memo-list"></ul>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
